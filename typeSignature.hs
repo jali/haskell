@@ -59,6 +59,7 @@ productit (x:xs) = x * productit xs
 
 
 maxit :: (Ord a) => [a] -> a
+maxit [] = error "maximum of empty list"
 maxit [x] = x
 maxit (x:xs)
       | x > mx     = x
