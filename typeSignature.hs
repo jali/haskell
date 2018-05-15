@@ -41,3 +41,14 @@ watchcase :: Int -> [Char]
 watchcase n = show n ++ " O'Clock and " ++ case n of 7 -> "... SHARKNADO!"
                                                      _ -> "all's well."
         
+
+lengthit :: [a] -> Int
+lengthit [] = 0
+lengthit (_:xs) = 1 + lengthit xs
+-- list should be either numeric or string
+
+-- sumit :: [Int] -> Int   
+-- is the same but the one below would sum floating points too
+sumit :: (Num a) => [a] -> a
+sumit [] = 0
+sumit (x:xs) = x + sumit xs
