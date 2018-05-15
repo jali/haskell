@@ -36,4 +36,8 @@ watch :: Int -> [Char]
 watch n
     | n == 7            = "7 O'Clock and .. SHARKNADO!"
     | otherwise         = show n ++ " O'Clock and all's well."
+
+watchcase :: Int -> [Char]
+watchcase n = show n ++ " O'Clock and " ++ case n of 7 -> "... SHARKNADO!"
+                                                     _ -> "all's well."
         
