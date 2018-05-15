@@ -25,3 +25,15 @@ noVowels "" = ""
 noVowels (x:xs)
         | x `elem` "aeiouAEIOU" = noVowels xs
         | otherwise             = x : noVowels xs
+
+
+
+watchif :: Int -> [Char]
+watchif n = if n == 7 then "7 O'Clock and .. SHARKNADO!"
+        else show n ++ " O'Clock and all's well."
+
+watch :: Int -> [Char]
+watch n
+    | n == 7            = "7 O'Clock and .. SHARKNADO!"
+    | otherwise         = show n ++ " O'Clock and all's well."
+        
