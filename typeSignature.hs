@@ -52,3 +52,15 @@ lengthit (_:xs) = 1 + lengthit xs
 sumit :: (Num a) => [a] -> a
 sumit [] = 0
 sumit (x:xs) = x + sumit xs
+
+productit :: (Num a) => [a] -> a
+productit [] = 1
+productit (x:xs) = x * productit xs
+
+
+maxit :: (Ord a) => [a] -> a
+maxit [x] = x
+maxit (x:xs)
+      | x > mx     = x
+      | otherwise  = mx
+      where mx = maxit xs
