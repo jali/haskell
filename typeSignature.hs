@@ -65,3 +65,75 @@ maxit (x:xs)
       | x > mx     = x
       | otherwise  = mx
       where mx = maxit xs
+
+
+addTuples :: (Int, Int) -> (Int, Int) -> (Int, Int)
+addTuples (x, y) (x2, y2) = (x + x2, y + y2)
+
+
+whatAge :: Int -> String
+whatAge 16 = "You can drive"
+whatAge 18 = "You can vote"
+whatAge 21 = "You're an adult"
+whatAge _ = "Nothing important"
+
+
+factorial :: Int -> Int
+factorial 0 = 1
+factorial n = n * factorial(n - 1)
+
+
+isOdd :: Int -> Bool
+isOdd n
+    | n `mod` 2 == 0    = False
+    | otherwise         = True
+
+isEven n = n `mod` 2 == 0
+
+
+whatGrade :: Int -> String
+
+whatGrade age 
+    | ( age >= 5 ) && ( age <= 6 )    = "Kindergarten"
+    | ( age > 6 ) && ( age <= 10 )    = "Elementary school"
+    | ( age > 10 ) && ( age <= 14 )   = "Middle school"
+    | ( age > 14 ) && ( age <= 18 )   = "High school"
+    | otherwise = "Go to college"
+
+-- [] here stands for empty rest
+getListItems :: [Int] -> String
+getListItems [] = "Your list is empty"
+getListItems (x:[]) = "Your list starts with " ++ show x
+getListItems (x:y:[]) = "Your list contains " ++ show x ++ " and " ++ show y
+getListItems (x:xs) = "Head is " ++ show x ++ " and the rest is " ++ show xs
+
+-- use of all
+getFirstChar :: String -> String
+getFirstChar [] = "Empty string"
+getFirstChar all@(x:xs) = "The first letter in " ++ all ++ " is " ++ show x
+
+
+
+times4 :: Int -> Int
+times4 n = n * 4
+
+listTimes4 = map times4 [1,2,3,4]
+
+mapMult4 :: [Int] -> [Int]
+mapMult4 [] = []
+mapMult4 (x:xs) = times4 x : mapMult4 xs
+
+
+areStringsEqual :: String -> String -> Bool
+areStringsEqual [] [] = True
+areStringsEqual (x:xs) (y:ys) 
+            | x /= y    = False
+            | otherwise = areStringsEqual xs ys
+
+-- you can also say 
+areStringsEq :: [Char] -> [Char] -> Bool
+areStringsEq [] [] = True
+areStringsEq (x:xs) (y:ys) = x==y && areStringsEq xs ys
+areStringsEq _ _ = False
+            
+
